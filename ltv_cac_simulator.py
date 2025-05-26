@@ -3354,7 +3354,7 @@ def regional_city_expansion():
         
         # Ресурсы для экспансии
         expansion_budget = st.number_input("Бюджет на запуск (млн руб)", 5, 200, 50)
-        timeline = st.slider("Timeline до breakeven (месяцев)", 6, 36, 18)
+        timeline = st.slider("Время до окупаемости (месяцев)", 6, 36, 18)
     
     # Market sizing
     addressable_market = population * 0.15  # 15% penetration potential в региональном городе
