@@ -6,7 +6,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-![Ride-Hailing Simulator]([https://via.placeholder.com/800x400/667eea/ffffff?text=Ride-Hailing+LTV%2FCAC+Simulator](https://ltvcacsimulator.streamlit.app/))
+![Ride-Hailing Simulator](https://ltvcacsimulator.streamlit.app/)
 
 ## 📋 О проекте
 
