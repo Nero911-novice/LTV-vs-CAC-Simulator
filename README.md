@@ -230,28 +230,6 @@ base_cac = 1500  # Ваш CAC
 - Defensive стратегии
 - Market share dynamics
 
-## 🤝 Кейсы применения
-
-### Для Product Managers:
-- Приоритизация features на основе impact на LTV
-- A/B тестирование промо-механик
-- User journey optimization
-
-### Для Growth Teams:
-- Channel attribution и CAC optimization
-- Referral program design
-- Retention strategy development
-
-### Для Finance Teams:
-- Unit economics forecasting
-- Budget allocation optimization
-- Scenario planning для board presentations
-
-### Для Strategy Teams:
-- Market entry decisions
-- Competitive positioning
-- M&A evaluation
-
 ## 📚 Документация модулей
 
 ### Unit Economics Calculator
@@ -281,26 +259,6 @@ base_cac = 1500  # Ваш CAC
 1. Загрузите код на GitHub
 2. Подключите репозиторий к [Streamlit Cloud](https://streamlit.io/cloud)
 3. Автоматический деплой при push
-
-### Docker
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-EXPOSE 8501
-
-CMD ["streamlit", "run", "ltv_cac_simulator.py"]
-```
-
-### Heroku
-```bash
-# Создайте Procfile:
-web: streamlit run ltv_cac_simulator.py --server.port=$PORT --server.address=0.0.0.0
-```
 
 ## 🔒 Безопасность и конфиденциальность
 
