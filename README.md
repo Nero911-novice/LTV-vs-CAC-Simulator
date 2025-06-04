@@ -99,7 +99,7 @@ pip install -r requirements.txt
 
 4. **Запустите приложение:**
 ```bash
-streamlit run ltv_cac_simulator.py
+streamlit run main.py
 ```
 
 5. **Откройте браузер:**
@@ -190,7 +190,7 @@ plotly==5.17.0
 
 ### Адаптация метрик:
 ```python
-# В файле ltv_cac_simulator.py найдите секцию:
+# В файле app/unit_economics.py найдите секцию:
 # "# Базовые метрики для вашего города"
 
 base_aov = 350  # Замените на ваш средний чек
