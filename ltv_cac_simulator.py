@@ -1,14 +1,9 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.graph_objects as go
-import plotly.express as px
 from plotly.subplots import make_subplots
-from datetime import datetime, timedelta
-import random
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List
 
 # Конфигурация
 st.set_page_config(
