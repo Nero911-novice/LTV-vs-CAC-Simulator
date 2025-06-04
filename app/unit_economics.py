@@ -14,7 +14,7 @@ def show_ride_hailing_sidebar():
     with st.expander("📖 Ride-Hailing метрики"):
         st.markdown("""
         **AOV** - Average Order Value (средний чек поездки)
-        **Take Rate** - комиссия платформы с поездки
+        **Комиссия с заказа** - комиссия платформы с поездки
         **Частота** - поездок на пользователя в месяц
         **Time to 2nd ride** - время до второй поездки
         **Monthly Active Users** - активные пользователи в месяц
@@ -38,7 +38,7 @@ def unit_economics_calculator():
     st.header("📊 Unit Economics для Ride-Hailing")
     
     st.markdown("""
-    **Специфика ride-hailing**: вместо подписок у нас поездки, вместо валовой маржи - take rate, 
+    **Специфика ride-hailing**: вместо подписок у нас поездки, вместо валовой маржи - комиссия с заказа, 
     ключевая метрика - частота использования.
     """)
     
@@ -48,7 +48,7 @@ def unit_economics_calculator():
         st.subheader("🚗 Параметры поездок")
         
         aov = st.slider("Средний чек поездки (AOV)", 150, 800, 350, 25)
-        take_rate = st.slider("Take rate (%)", 15, 35, 25, 1)
+        take_rate = st.slider("Комиссия с заказа (%)", 15, 35, 25, 1)
         monthly_frequency = st.slider("Поездок в месяц на пользователя", 1, 20, 4, 1)
         monthly_churn = st.slider("Месячный отток пользователей (%)", 5, 25, 12, 1)
         
@@ -158,7 +158,7 @@ def create_ride_hailing_sensitivity_chart(aov: float, take_rate: float, frequenc
     # График с тремя subplot'ами
     fig = make_subplots(
         rows=2, cols=2,
-        subplot_titles=('Влияние частоты поездок', 'Влияние take rate', 
+        subplot_titles=('Влияние частоты поездок', 'Влияние комиссии с заказа', 
                        'Влияние среднего чека', 'Сравнение факторов'),
         specs=[[{"colspan": 1}, {"colspan": 1}], 
                [{"colspan": 1}, {"colspan": 1}]]
@@ -171,7 +171,7 @@ def create_ride_hailing_sensitivity_chart(aov: float, take_rate: float, frequenc
         row=1, col=1
     )
     
-    # График 2: Take rate
+    # График 2: Комиссия с заказа
     fig.add_trace(
         go.Scatter(x=take_rate_range, y=ltv_take_rate, mode='lines+markers',
                   name='LTV от take rate', line=dict(color='green', width=3)),
@@ -187,7 +187,7 @@ def create_ride_hailing_sensitivity_chart(aov: float, take_rate: float, frequenc
     
     # График 4: Сравнение эластичности
     elasticity_data = {
-        'Параметр': ['Частота поездок', 'Take Rate', 'Средний чек'],
+        'Параметр': ['Частота поездок', 'Комиссия с заказа', 'Средний чек'],
         'Эластичность': [
             (max(ltv_frequency) - min(ltv_frequency)) / min(ltv_frequency),
             (max(ltv_take_rate) - min(ltv_take_rate)) / min(ltv_take_rate),
@@ -210,7 +210,7 @@ def create_ride_hailing_sensitivity_chart(aov: float, take_rate: float, frequenc
     
     fig.update_layout(height=600, showlegend=False)
     fig.update_xaxes(title_text="Поездок/месяц", row=1, col=1)
-    fig.update_xaxes(title_text="Take Rate (%)", row=1, col=2)
+    fig.update_xaxes(title_text="Комиссия с заказа (%)", row=1, col=2)
     fig.update_xaxes(title_text="AOV (руб)", row=2, col=1)
     fig.update_xaxes(title_text="Параметр", row=2, col=2)
     fig.update_yaxes(title_text="LTV (руб)")
@@ -224,7 +224,7 @@ def create_ride_hailing_sensitivity_chart(aov: float, take_rate: float, frequenc
     1. **Частота - король**: Увеличение поездок с {frequency} до {frequency*1.5:.1f} в месяц 
        повышает LTV на {((max(ltv_frequency)/min(ltv_frequency) - 1) * 100):.0f}%
     
-    2. **Take rate имеет пределы**: Повышение комиссии увеличивает LTV, но снижает конкурентоспособность
+    2. **Комиссия с заказа имеет пределы**: Повышение комиссии увеличивает LTV, но снижает конкурентоспособность
     
     3. **AOV зависит от продукта**: Премиум-сегмент vs эконом влияет на средний чек
     
