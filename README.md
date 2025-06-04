@@ -99,7 +99,7 @@ pip install -r requirements.txt
 
 4. **Запустите приложение:**
 ```bash
-streamlit run main.py
+streamlit run ltv_cac_simulator.py
 ```
 
 5. **Откройте браузер:**
